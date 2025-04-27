@@ -18,9 +18,11 @@ export async function POST(req: NextRequest) {
     // Validate the webhook payload structure
     if (
       !body ||
-      !body.block ||
-      !Array.isArray(body.block.logs) ||
-      body.block.logs.length === 0
+      !body.event ||
+      !body.event.data ||
+      !body.event.data.block ||
+      !Array.isArray(body.event.data.block.logs) ||
+      body.event.data.block.logs.length === 0
     ) {
       console.error('Invalid webhook payload structure:', body);
       return NextResponse.json(
@@ -29,7 +31,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const log = body.block.logs[0];
+    const log = body.event.data.block.logs[0];
 
     // Validate log structure
     if (!log.data || !log.topics || log.topics.length < 2) {
