@@ -54,10 +54,23 @@ export async function POST(req: NextRequest) {
     const topic1 = log.topics[1] as string;
     const player = `0x${topic1.slice(26)}`;
 
-    // 3) Upsert into a Redis sorted set called "leaderboard"
-    await redis.zadd('leaderboard', { score, member: player });
+    console.log('Attempting to write to Redis:', {
+      key: 'leaderboard',
+      score,
+      player,
+    });
 
-    return NextResponse.json({ ok: true });
+    // 3) Upsert into a Redis sorted set called "leaderboard"
+    const result = await redis.zadd('leaderboard', { score, member: player });
+    console.log('Redis write result:', result);
+
+    // Verify the write by reading back the data
+    const leaderboard = await redis.zrange('leaderboard', 0, -1, {
+      withScores: true,
+    });
+    console.log('Current leaderboard state:', leaderboard);
+
+    return NextResponse.json({ ok: true, result });
   } catch (err) {
     console.error('❌ /api/events/highscore error:', err);
     return NextResponse.json(
