@@ -57,10 +57,16 @@ export function SaveScoreButton({ score, onSuccess }: SaveScoreButtonProps) {
         args: [BigInt(score)],
       });
 
+      console.log('Contract call data:', {
+        to: GUESS_GAME_SCORING_ADDRESS,
+        data,
+        score: BigInt(score),
+      });
+
       await sendCalls({
         calls: [
           {
-            to: GUESS_GAME_SCORING_ADDRESS,
+            to: GUESS_GAME_SCORING_ADDRESS as `0x${string}`,
             data,
           },
         ],
