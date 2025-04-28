@@ -24,15 +24,8 @@ export const guessGameContract = {
 
 export function useGameContract() {
   const account = useAccount();
-  //const [success, setSuccess] = useState(false);
 
-  const { writeContracts } = useWriteContracts({
-    // mutation: {
-    //   onSuccess: () => {
-    //     setSuccess(true);
-    //   },
-    // },
-  });
+  const { writeContracts } = useWriteContracts({});
   const { data: availableCapabilities } = useCapabilities({
     account: account.address,
   });
