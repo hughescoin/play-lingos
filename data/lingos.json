@@ -8,7 +8,7 @@
       "level": "Beginner",
       "prompt": "Ya tu ____",
       "answer": "Sabes",
-      "choices": ["Sabes", "No sabe", "Nombre", "Sa"]
+      "choices": ["No sabe", "Sabes", "Sa", "Nombre"]
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "level": "Beginner",
       "prompt": "The ___ calling the kettle black",
       "answer": "pot",
-      "choices": ["pot", "preacher", "stove", "cat"]
+      "choices": ["stove", "pot", "preacher", "cat"]
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "level": "Beginner",
       "prompt": "He's just pulling your ____. Don't take it seriously.",
       "answer": "leg",
-      "choices": ["leg", "hair", "arm", "foot"]
+      "choices": ["foot", "arm", "leg", "hair"]
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "level": "Beginner",
       "prompt": "Speak of the ____!",
       "answer": "devil",
-      "choices": ["devil", "angel", "ghost", "king"]
+      "choices": ["king", "ghost", "devil", "angel"]
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "level": "Beginner",
       "prompt": "_____ flies when you're having fun!",
       "answer": "Time",
-      "choices": ["Time", "Wind", "Day", "Life"]
+      "choices": ["Wind", "Day", "Time", "Life"]
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "level": "Beginner",
       "prompt": "I'm a bit _____ the weather today.",
       "answer": "under",
-      "choices": ["under", "beyond", "above", "below"]
+      "choices": ["above", "below", "beyond", "under"]
     },
     {
       "id": 7,
@@ -68,7 +68,7 @@
       "level": "Beginner",
       "prompt": "That's the last ____. I can't take any more!",
       "answer": "straw",
-      "choices": ["straw", "warning", "clue", "step"]
+      "choices": ["warning", "clue", "straw", "step"]
     },
     {
       "id": 8,
@@ -78,7 +78,7 @@
       "level": "Beginner",
       "prompt": "One one cocoa ______ basket",
       "answer": "full",
-      "choices": ["full", "empty", "half", "tiny"]
+      "choices": ["empty", "half", "full", "tiny"]
     },
     {
       "id": 9,
@@ -88,7 +88,7 @@
       "level": "Beginner",
       "prompt": "Every ______ mek a muckle",
       "answer": "mickle",
-      "choices": ["mickle", "pinch", "dribble", "smidgen"]
+      "choices": ["smidgen", "mickle", "pinch", "dribble"]
     },
     {
       "id": 10,
@@ -98,7 +98,7 @@
       "level": "Beginner",
       "prompt": "Chicken merry, ______ deh near",
       "answer": "hawk",
-      "choices": ["hawk", "fox", "bear", "tiger"]
+      "choices": ["tiger", "fox", "hawk", "bear"]
     },
     {
       "id": 11,
@@ -108,7 +108,7 @@
       "level": "Beginner",
       "prompt": "If yuh waan good, yuh ______ haffi run",
       "answer": "nose",
-      "choices": ["nose", "legs", "back", "brain"]
+      "choices": ["brain", "legs", "nose", "back"]
     },
     {
       "id": 12,
@@ -118,7 +118,7 @@
       "level": "Beginner",
       "prompt": "Nuh wait till drum ______ fi go a dance",
       "answer": "beat",
-      "choices": ["beat", "sing", "play", "sound"]
+      "choices": ["sound", "play", "sing", "beat"]
     },
     {
       "id": 13,
@@ -128,7 +128,7 @@
       "level": "Intermediate",
       "prompt": "Flat out like a ____ drinking",
       "answer": "lizard",
-      "choices": ["lizard", "dog", "cow", "horse"]
+      "choices": ["horse", "dog", "lizard", "cow"]
     },
     {
       "id": 14,
@@ -138,7 +138,7 @@
       "level": "Intermediate",
       "prompt": "Going off like a frog in a ____",
       "answer": "sock",
-      "choices": ["sock", "box", "hat", "pot"]
+      "choices": ["pot", "box", "sock", "hat"]
     },
     {
       "id": 15,
@@ -148,7 +148,7 @@
       "level": "Intermediate",
       "prompt": "Like a stunned ____",
       "answer": "mullet",
-      "choices": ["mullet", "deer", "rabbit", "cat"]
+      "choices": ["cat", "rabbit", "deer", "mullet"]
     },
     {
       "id": 16,
@@ -158,7 +158,7 @@
       "level": "Intermediate",
       "prompt": "Mad as a ____",
       "answer": "galah",
-      "choices": ["galah", "hen", "parrot", "cockatoo"]
+      "choices": ["cockatoo", "hen", "galah", "parrot"]
     },
     {
       "id": 17,
@@ -168,7 +168,7 @@
       "level": "Intermediate",
       "prompt": "Chuck a ____",
       "answer": "sickie",
-      "choices": ["sickie", "party", "fit", "tantrum"]
+      "choices": ["tantrum", "party", "sickie", "fit"]
     },
     {
       "id": 18,
@@ -178,7 +178,7 @@
       "level": "Intermediate",
       "prompt": "Throw a ____",
       "answer": "wobbly",
-      "choices": ["wobbly", "fit", "paddy", "hissy"]
+      "choices": ["hissy", "fit", "wobbly", "paddy"]
     }
   ]
 }
