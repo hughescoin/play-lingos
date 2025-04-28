@@ -6,6 +6,20 @@ import { GameOverScreen } from './components/GameOverScreen';
 import { FeedbackOverlay } from './components/FeedbackOverlay';
 import { ScoreDisplay } from './components/ScoreDisplay';
 import { HomeScreen } from './components/HomeScreen';
+import {
+  ConnectWallet,
+  Wallet,
+  WalletDropdown,
+  WalletDropdownLink,
+  WalletDropdownDisconnect,
+} from '@coinbase/onchainkit/wallet';
+import {
+  Address,
+  Avatar,
+  Name,
+  Identity,
+  EthBalance,
+} from '@coinbase/onchainkit/identity';
 
 interface Lingo {
   id: number;
@@ -144,13 +158,49 @@ export default function App() {
 
   return (
     <div className='flex flex-col min-h-screen font-sans text-[var(--app-foreground)] mini-app-theme from-[var(--app-background)] to-[var(--app-gray)]'>
+      <div className='absolute right-4 top-4 z-10'>
+        <div className='wallet-container'>
+          <Wallet>
+            <ConnectWallet>
+              <Avatar className='h-6 w-6' />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className='px-4 pt-3 pb-2' hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownLink
+                icon='wallet'
+                href='https://keys.coinbase.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Wallet
+              </WalletDropdownLink>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
+        </div>
+      </div>
+
       <div className='w-full max-w-md mx-auto px-4 py-3'>
-        <header className='flex justify-between items-center mb-6 h-11'>
-          <h1 className='text-xl font-bold'>Phrase Completion</h1>
-          <div className='flex items-center gap-4'>
-            <ScoreDisplay score={score} />
-          </div>
-        </header>
+        <div className='text-center mb-12'>
+          <h1
+            className='text-6xl font-extrabold text-[var(--app-foreground)] tracking-tight cursor-pointer hover:opacity-80 transition-opacity'
+            onClick={() => setGameState('home')}
+          >
+            Lingos
+          </h1>
+          <div className='h-1 w-24 bg-[var(--app-foreground)] mx-auto mt-4 rounded-full'></div>
+        </div>
+
+        <div className='text-center mb-8'>
+          <ScoreDisplay score={score} />
+        </div>
+
         <main className='flex-1'>
           <div className='bg-white rounded-lg p-6 shadow-sm mb-6'>
             <div className='mb-4'>
