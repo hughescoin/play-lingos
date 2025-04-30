@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import lingosData from '../../../data/lingos.json';
+import lingosData from '@/data/lingos.json';
 
 export async function GET() {
   try {
