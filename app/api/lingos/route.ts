@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import lingosData from '@/data/lingos.json';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const lingos = lingosData.lingos;
@@ -17,7 +20,17 @@ export async function GET() {
       timestamp: new Date().toISOString(),
     });
 
-    return NextResponse.json(randomLingo);
+    // Return response with no-cache headers
+    return new NextResponse(JSON.stringify(randomLingo), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control':
+          'no-store, no-cache, must-revalidate, proxy-revalidate',
+        Pragma: 'no-cache',
+        Expires: '0',
+      },
+    });
   } catch (error) {
     console.error('Error serving lingo:', error);
     return NextResponse.json(

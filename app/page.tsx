@@ -51,7 +51,14 @@ export default function App() {
       setIsLoading(true);
       setError(null);
       console.log('Fetching new lingo...');
-      const response = await fetch('/api/lingos');
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/api/lingos?t=${timestamp}`, {
+        cache: 'no-store',
+        headers: {
+          Pragma: 'no-cache',
+          'Cache-Control': 'no-cache',
+        },
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch lingo');
       }
