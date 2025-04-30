@@ -50,11 +50,18 @@ export default function App() {
     try {
       setIsLoading(true);
       setError(null);
+      console.log('Fetching new lingo...');
       const response = await fetch('/api/lingos');
       if (!response.ok) {
         throw new Error('Failed to fetch lingo');
       }
-      return await response.json();
+      const data = await response.json();
+      console.log('Received lingo:', {
+        id: data.id,
+        prompt: data.prompt,
+        timestamp: new Date().toISOString(),
+      });
+      return data;
     } catch (error) {
       console.error('Error fetching lingo:', error);
       setError('Failed to load lingo. Please try again.');
@@ -65,6 +72,7 @@ export default function App() {
   };
 
   const startGame = async () => {
+    console.log('Starting new game...');
     setScore(0);
     setSelectedChoice(null);
     setShowFeedback(null);
@@ -72,6 +80,10 @@ export default function App() {
     setGameState('playing');
     const lingo = await getRandomLingo();
     if (lingo) {
+      console.log('Setting initial lingo:', {
+        id: lingo.id,
+        prompt: lingo.prompt,
+      });
       setCurrentLingo(lingo);
     } else {
       setGameState('home');
@@ -81,10 +93,17 @@ export default function App() {
   const handleChoiceSelect = async (choice: string) => {
     if (!currentLingo) return;
 
+    console.log('Choice selected:', {
+      choice,
+      correctAnswer: currentLingo.answer,
+      lingoId: currentLingo.id,
+    });
+
     const isCorrect = choice === currentLingo.answer;
     setSelectedChoice(choice);
 
     if (isCorrect) {
+      console.log('Correct answer! Fetching next lingo...');
       setScore((prev) => prev + 1);
       setShowFeedback({ isCorrect: true, message: 'Correct! 🎉' });
       setTimeout(async () => {
@@ -92,12 +111,17 @@ export default function App() {
         setSelectedChoice(null);
         const newLingo = await getRandomLingo();
         if (newLingo) {
+          console.log('Setting next lingo:', {
+            id: newLingo.id,
+            prompt: newLingo.prompt,
+          });
           setCurrentLingo(newLingo);
         } else {
           setGameState('home');
         }
       }, 1500);
     } else {
+      console.log('Incorrect answer, game over');
       setShowFeedback({ isCorrect: false, message: 'Game Over! 😢' });
       setTimeout(() => {
         setGameState('gameOver');
